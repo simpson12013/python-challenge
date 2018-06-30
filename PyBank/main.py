@@ -5,6 +5,7 @@ import csv
 
 
 csvpath = 'budget_data.csv'
+output = 'output.txt'
 
 
 #COUNT OF ROWS
@@ -107,3 +108,13 @@ with open(csvpath, newline='') as csvfile:
     print ("Average Change: $" + str(avgchange))
     print ("Greatest Increase in Profits: " + maxmonth + " ($" + str(maxchange) + ")")
     print ("Greatest Decrease in Profits: " + minmonth + " ($" + str(minchange) + ")")
+
+with open('output.txt','w') as text_file:
+
+   print ("Financial Analysis", file = text_file)
+   print ("--------------------------", file = text_file)
+   print ("Total Months: " + str(row_count), file = text_file)
+   print ("Total Profit/Losses: $" + str(net), file = text_file)
+   print ("Average Change: $" + str(avgchange), file = text_file)
+   print ("Greatest Increase in Profits: " + maxmonth + " ($" + str(maxchange) + ")", file = text_file)
+   print ("Greatest Decrease in Profits: " + minmonth + " ($" + str(minchange) + ")", file = text_file)

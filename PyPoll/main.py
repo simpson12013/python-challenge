@@ -2,6 +2,7 @@ import os
 import csv
 
 csvpath = 'election_data.csv'
+output = 'output.txt'
 
 with open(csvpath, newline = '') as csvfile:
    csvreader = csv.reader(csvfile, delimiter=',')
@@ -57,3 +58,17 @@ print (candidates[3] + ":" + " {0:.0%} ".format(canfour/row_count) + "(" + str(c
 print ("---------------------------")
 print ("Winner: " + winner)
 print ("---------------------------")
+
+with open('output.txt', 'w') as text_file:
+
+   print ("Election Results", file = text_file)
+   print ("---------------------------", file = text_file)
+   print ("Total Votes: " + str(row_count), file = text_file)
+   print ("---------------------------", file = text_file)
+   print (candidates[0] + ":" + " {0:.0%} ".format(canone/row_count) + "(" + str(canone) + ")", file = text_file)
+   print (candidates[1] + ":" + " {0:.0%} ".format(cantwo/row_count) + "(" + str(cantwo) + ")", file = text_file)
+   print (candidates[2] + ":" + " {0:.0%} ".format(canthree/row_count) + "(" + str(canthree) + ")", file = text_file)
+   print (candidates[3] + ":" + " {0:.0%} ".format(canfour/row_count) + "(" + str(canfour) + ")", file = text_file)
+   print ("---------------------------", file = text_file)
+   print ("Winner: " + winner, file = text_file)
+   print ("---------------------------", file = text_file)
